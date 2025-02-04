@@ -91,4 +91,16 @@ public class BankAccount {
         return String.format("Account[id=%s, name=%s, email=%s, phone=%s, balance=$%.2f]",
                 accountId, customerName, email, phoneNumber, balance);
     }
+
+    public static void main(String[] args) {
+        BankAccount account1 = new BankAccount("Alice", " [email protected]", "1234567890", 1000);
+        BankAccount account2 = new BankAccount("Bob", " [email protected]", "0987654321", 500);
+        System.out.println(account1);
+        System.out.println(account2);
+        account1.deposit(500);
+        account2.withdraw(200);
+        account1.transferTo(account2, 300);
+        System.out.println(account1);
+        System.out.println(account2);
+    }
 }

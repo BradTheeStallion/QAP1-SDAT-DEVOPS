@@ -1,12 +1,18 @@
 public class BankAccount {
-    private String accountId;
+    private static int lastAccountNumber = 1000;
+    private final String accountId;
     private String customerName;
     private String email;
     private String phoneNumber;
     private double balance;
 
-    public BankAccount(String accountId, String customerName, String email, String phoneNumber, double balance) {
-        this.accountId = accountId;
+    private static String generateAccountId() {
+        lastAccountNumber++;
+        return String.format("ACC%d", lastAccountNumber);
+    }
+
+    public BankAccount(String customerName, String email, String phoneNumber, double balance) {
+        this.accountId = generateAccountId();;
         this.customerName = customerName;
         this.email = email;
         this.phoneNumber = phoneNumber;
